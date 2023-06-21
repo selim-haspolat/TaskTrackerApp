@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-
 {% block container %}
+
 <hr>
-<h2>Todo List</h2>
-<p><a href="/add" class="btn btn-primary">YENİ EKLE</a></p>
+<h2>TodoDetailView</h2>
+<p><a href="/list" class="btn btn-primary">LIST</a></p>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -15,11 +15,6 @@
         </tr>
     </thead>
     <tbody>
-    {# SingleLine Comment #}
-    {% comment %}
-        Multiline Comment
-    {% endcomment %}
-    {% for todo in todos %}
         <tr>
             <td>
                 {% if todo.priority == 1 %}
@@ -40,11 +35,15 @@
                 {% endif %}
             </td>
             <td>
-                <a href="/update/{{ todo.id }}">Güncelle</a>
-                <a href="/delete/{{ todo.id }}" onclick="return confirm('Are you sure?')">Sil</a>
+                | <a href="/update/{{ todo.id }}">Güncelle</a>
+                | <a href="/delete/{{ todo.id }}" onclick="return confirm('Are you sure?')">Sil</a>
             </td>
         </tr>
-    {% endfor %}
     </tbody>
 </table>
+<b>Açıklama:</b> <br> {{ todo.description }}
+<hr>
+<b>Kayıt:</b> <br> {{ todo.created_date }}
+<b>Güncelleme:</b> <br> {{ todo.updated_date }}
+
 {% endblock container %}

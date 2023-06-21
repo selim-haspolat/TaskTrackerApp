@@ -2,12 +2,12 @@
 
 {% block container %}
 <hr>
-<h2>Add Todo</h2>
+<h2>Todo Add/Update</h2>
 
 <form action="" method="POST">
     {% csrf_token %}
     <table>{{ form }}</table>
-    <input type="submit" value="Add Todo" />
+    <input type="submit" value="Add/Update" />
 </form>
 
 {% endblock container %}
